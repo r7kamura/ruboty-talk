@@ -1,31 +1,13 @@
 # Ruboty::Talk
+Talk with you if given message didn't match any other handlers.
 
-TODO: Write a gem description
-
-## Installation
-
-Add this line to your application's Gemfile:
-
+## Install
 ```ruby
-gem 'ruboty-talk'
+# Gemfile
+gem "ruboty-talk"
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ruboty-talk
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/ruboty-talk/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+## ENV
+```
+DOCOMO_API_KEY - Pass DoCoMo API KEY
+```
