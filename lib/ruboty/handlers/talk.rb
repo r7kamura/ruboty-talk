@@ -15,7 +15,9 @@ module Ruboty
       )
 
       def talk(message)
-        message.reply(client.create_dialogue(message[:body]).body["utt"])
+        response = client.create_dialogue(message[:body], context: @context)
+        @context = response.body["context"]
+        message.reply(response.body["utt"])
       end
 
       private
