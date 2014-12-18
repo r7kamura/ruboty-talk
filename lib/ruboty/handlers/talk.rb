@@ -18,6 +18,12 @@ module Ruboty
         response = client.create_dialogue(message[:body], context: @context)
         @context = response.body["context"]
         message.reply(response.body["utt"])
+      rescue Exception => e
+        message.reply("Error: #{e.class}: #{e.message}")
+        Ruboty.logger.error("Error: #{e.class}: #{e.message}")
+        e.backtrace.each do |line|
+          Ruboty.logger.error(line)
+        end
       end
 
       private
