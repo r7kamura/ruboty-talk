@@ -1,3 +1,6 @@
+## 0.0.4
+- Add error handling (thx @sorah)
+
 ## 0.0.3
 - Keep context
 
