@@ -9,5 +9,6 @@ gem "ruboty-talk"
 
 ## ENV
 ```
-DOCOMO_API_KEY - Pass DoCoMo API KEY
+DOCOMO_API_KEY        - Pass DoCoMo API KEY
+RUBOTY_TALK_CHARACTER - Character ID: 20 or 30 (default: nil)
 ```
