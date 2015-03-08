@@ -7,7 +7,7 @@ module Ruboty
       CHARACTER_IDS = [20, 30]
 
       env :DOCOMO_API_KEY, "Pass DoCoMo API KEY"
-      env :RUBOTY_TALK_CHARACTER, "Character ID: #{CHARACTER_IDS.join(" or ")} (default: nil)", optional: true
+      env :DOCOMO_CHARACTER_ID, "Character ID to be passed as t parameter", optional: true
 
       on(
         /(?<body>.+)/,
