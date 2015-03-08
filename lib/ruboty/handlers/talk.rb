@@ -4,7 +4,6 @@ module Ruboty
   module Handlers
     class Talk < Base
       NAMESPACE = "alias"
-      CHARACTER_IDS = [20, 30]
 
       env :DOCOMO_API_KEY, "Pass DoCoMo API KEY"
       env :DOCOMO_CHARACTER_ID, "Character ID to be passed as t parameter", optional: true
@@ -26,25 +25,23 @@ module Ruboty
 
       private
 
+      def character_id
+        if ENV["DOCOMO_CHARACTER_ID"]
+          ENV["DOCOMO_CHARACTER_ID"].to_i
+        end
+      end
+
       def client
         @client ||= Docomoru::Client.new(api_key: ENV["DOCOMO_API_KEY"])
       end
 
       def params
-        param_methods = private_methods.select { |meth| meth.to_s =~ /_param$/ }
-        param_methods.inject({}) { |params, meth| params.merge(send(meth)) }
-      end
-
-      def character_param
-        CHARACTER_IDS.include?(character_id) ? {t: character_id} : {}
-      end
-
-      def context_param
-        {context: @context}
-      end
-
-      def character_id
-        ENV["RUBOTY_TALK_CHARACTER"] && ENV["RUBOTY_TALK_CHARACTER"].to_i
+        {
+          context: @context,
+          t: character_id,
+        }.reject do |key, value|
+          value.nil?
+        end
       end
     end
   end
