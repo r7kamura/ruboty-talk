@@ -1,3 +1,6 @@
+## 0.0.5
+- Add DOCOMO_CHARACTER_ID
+
 ## 0.0.4
 - Add error handling (thx @sorah)
 
